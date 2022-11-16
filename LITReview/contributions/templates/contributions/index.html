@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% csrf_token %}
+
+<div>
+    <a href="{% url 'add_ticket' %}">Demander une critique</a>
+    <a href="">Créer une critique</a>
+</div>
+{% for post in posts %}
+    {% if post.content_type == 'TICKET' %}
+        <p>{{ post.title }}</p>
+        <p>{{ post.user }}</p>
+    {% elif post.content_type == 'REVIEW' %}
+        <p>{{ post.body }}</p>
+        <p>{{ post.user }}</p>
+    {% endif %}
+{% endfor %}
+
+
+{% endblock %}

@@ -10,7 +10,7 @@
         {% if user.is_authenticated %}
             <p>Vous êtes connecté en tant que {{ request.user }}.</p>
             <ul>
-                <li><a href="">Flux</a></li>
+                <li><a href="{% url 'index' %}">Flux</a></li>
                 <li><a href="">Posts</a></li>
                 <li><a href="{% url 'follows' %}">Abonnements</a></li>
                 <li><a href="{% url 'logout' %}">Se déconnecter</a></li>

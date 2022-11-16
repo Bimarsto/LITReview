@@ -17,11 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from authentication.views import signup, login_page, logout_page
 from follows.views import index
+from contributions.views import flux, add_ticket, edit_ticket, add_review_without_ticket, add_review_from_ticket
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', login_page, name="login"),
-    path('signup/', signup, name="signup"),
-    path('logout/', logout_page, name="logout"),
-    path('follows/', index, name="follows"),
+    path('', flux, name='index'),
+    path('login/', login_page, name='login'),
+    path('signup/', signup, name='signup'),
+    path('logout/', logout_page, name='logout'),
+    path('follows/', index, name='follows'),
+    path('tickets/add/', add_ticket, name='add_ticket'),
+    path('tickets/edit/<int:ticket_id>/', edit_ticket, name='edit_ticket'),
+    path('reviews/add/', add_review_without_ticket, name='add_review_without_ticket'),
+    path('reviews/<int:ticket_id>/add', add_review_from_ticket, name='add_review_from_ticket'),
 ]

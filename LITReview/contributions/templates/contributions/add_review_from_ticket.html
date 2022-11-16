@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h2>Créer un critique</h2>
+            <div>
+                <h3>Vous être en train de poster en réponse à:</h3>
+                <div>
+                    <p>{{ ticket.time_created }}</p>
+                    <p>{{ ticket.user }} a demander une critique</p>
+                    <p>{{ ticket.title }}</p>
+                    <p>{{ ticket.description }}</p>
+                    <p>{{ ticket.image }}</p>
+                </div>
+            </div>
+        <form method="post">
+            {% csrf_token %}
+            <div>
+                <h3>Critique</h3>
+                {{ review_form.as_p }}
+            </div>
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
+{% endblock %}
