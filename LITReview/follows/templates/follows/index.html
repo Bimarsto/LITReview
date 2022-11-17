@@ -3,19 +3,28 @@
 {% block content %}
 
 <h1>Gestion des abonnements utilisateur</h1>
-
-<h2>Abonnements</h2>
-<ul>
-{% for follow in follows %}
-    <li>{{ follow.followed_user }}<a href="{% url 'unfollow' follow.id %}">Désabonner</a></li>
-{% endfor %}
-</ul>
-
-<h2>Abonnés</h2>
-<ul>
-{% for follow in followed_by %}
-    <li>{{ follow.user }}</li>
-{% endfor %}
-</ul>
-
+<div>
+    <h2>Suivre d'autres utilisateurs</h2>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Envoyer">
+    </form>
+</div>
+<div>
+    <h2>Abonnements</h2>
+    <ul>
+    {% for follow in follows %}
+        <li>{{ follow.followed_user }}<a href="{% url 'unfollow' follow.id %}">Désabonner</a></li>
+    {% endfor %}
+    </ul>
+</div>
+<div>
+    <h2>Abonnés</h2>
+    <ul>
+    {% for follow in followed_by %}
+        <li>{{ follow.user }}</li>
+    {% endfor %}
+    </ul>
+</div>
 {% endblock %}

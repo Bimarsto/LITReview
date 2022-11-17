@@ -4,7 +4,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import CharField, Value
 from .forms import TicketForm, ReviewForm
 from .models import Ticket, Review
-from follows.models import UserFollows
 
 
 def add_ticket(request):

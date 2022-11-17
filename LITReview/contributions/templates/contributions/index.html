@@ -5,7 +5,7 @@
 
 <div>
     <a href="{% url 'add_ticket' %}">Demander une critique</a>
-    <a href="">Créer une critique</a>
+    <a href="{% url 'add_review_without_ticket' %}">Créer une critique</a>
 </div>
 {% for post in posts %}
     {% if post.content_type == 'TICKET' %}
