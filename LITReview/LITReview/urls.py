@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from authentication.views import signup, login_page, logout_page
-from follows.views import index
+from follows.views import index, delete
 from contributions.views import flux, add_ticket, edit_ticket, add_review_without_ticket, add_review_from_ticket
 
 urlpatterns = [
@@ -26,6 +26,7 @@ urlpatterns = [
     path('signup/', signup, name='signup'),
     path('logout/', logout_page, name='logout'),
     path('follows/', index, name='follows'),
+    path('unfollows/<int:id_deleted>', delete, name='unfollow'),
     path('tickets/add/', add_ticket, name='add_ticket'),
     path('tickets/edit/<int:ticket_id>/', edit_ticket, name='edit_ticket'),
     path('reviews/add/', add_review_without_ticket, name='add_review_without_ticket'),

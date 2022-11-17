@@ -9,11 +9,21 @@
 </div>
 {% for post in posts %}
     {% if post.content_type == 'TICKET' %}
-        <p>{{ post.title }}</p>
-        <p>{{ post.user }}</p>
+        <div>
+            <p>{{ post.user }} a demander une critique</p>
+            <p>{{ post.title }}</p>
+            <p>{{ post.description }}</p>
+            <img src="">
+        </div>
     {% elif post.content_type == 'REVIEW' %}
-        <p>{{ post.body }}</p>
-        <p>{{ post.user }}</p>
+        <div>
+            <p>{{ post.user }} a publier une critique</p>
+            <p>{{ post.headline }} - {{ post.rating }}</p>
+            <p>{{ post.body }}</p>
+            <img src="">
+        </div>
+
+
     {% endif %}
 {% endfor %}
 
