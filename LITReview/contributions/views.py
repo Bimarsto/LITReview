@@ -78,6 +78,7 @@ def add_review_from_ticket(request, ticket_id):
                    'review_form': review_form,
                    })
 
+
 def get_users_reviews(user):
     user_reviews = Review.objects.all()
     return user_reviews

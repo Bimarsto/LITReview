@@ -1,0 +1,132 @@
+body {
+  background-color: #e0ebeb;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+.body__content {
+  margin-top: 200px;
+}
+
+.nav {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #24527a;
+}
+.nav__item {
+  margin: 10px;
+  margin-right: 0.25rem;
+  color: #e0ebeb;
+}
+.nav__item--right {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  margin-left: auto;
+  margin-right: 0;
+}
+.nav__item--right a {
+  float: left;
+  color: #ccac00;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.nav__item--right a:hover {
+  background-color: #e0ebeb;
+  color: #24527a;
+}
+
+#header {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #e0ebeb;
+}
+#header > h1 {
+  font-size: 5em;
+  display: flex;
+  justify-content: center;
+  margin: 1rem auto;
+  color: #24527a;
+  text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0, 0, 0, 0.15);
+}
+
+.button {
+  background-color: #24527a;
+  border: 0;
+  color: #ccac00;
+  font-size: 17px;
+  font-weight: 800;
+  font-style: normal;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0.5rem;
+}
+.button:hover {
+  background-color: #5dacbd;
+  color: #24527a;
+}
+.button:active {
+  transform: scale(0.95);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+}
+.card > p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.card > img {
+  max-width: 300px;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem;
+}
+
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form > h2 {
+  color: #24527a;
+}
+.form > h3 {
+  color: #24527a;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.form > p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.form > form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
+.form > form > p > label {
+  color: #24527a;
+}
+
+/*# sourceMappingURL=style.css.map */

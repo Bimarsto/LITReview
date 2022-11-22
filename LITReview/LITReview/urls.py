@@ -13,10 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from LITReview import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from authentication.views import signup, login_page, logout_page
-from follows.views import index, follow, unfollow
+from follows.views import index, unfollow
 from contributions.views import flux, add_ticket, edit_ticket, add_review_without_ticket, add_review_from_ticket
 
 urlpatterns = [
@@ -32,3 +34,6 @@ urlpatterns = [
     path('reviews/add/', add_review_without_ticket, name='add_review_without_ticket'),
     path('reviews/<int:ticket_id>/add', add_review_from_ticket, name='add_review_from_ticket'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

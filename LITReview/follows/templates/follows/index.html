@@ -3,13 +3,14 @@
 {% block content %}
 
 <h1>Gestion des abonnements utilisateur</h1>
-<div>
+<div class="form">
     <h2>Suivre d'autres utilisateurs</h2>
     <form action="" method="post" novalidate>
         {% csrf_token %}
         {{ form }}
-        <input type="submit" value="Envoyer">
+        <input class="button" type="submit" value="Envoyer">
     </form>
+    <p>{{ message }}</p>
 </div>
 <div>
     <h2>Abonnements</h2>

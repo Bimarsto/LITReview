@@ -1,26 +1,28 @@
 {% extends 'base.html' %}
-
 {% block content %}
 {% csrf_token %}
 
-<div>
-    <a href="{% url 'add_ticket' %}">Demander une critique</a>
-    <a href="{% url 'add_review_without_ticket' %}">Créer une critique</a>
+<div class="box">
+    <a class="button" href="{% url 'add_ticket' %}">Demander une critique</a>
+    <a class="button" href="{% url 'add_review_without_ticket' %}">Créer une critique</a>
 </div>
 {% for post in posts %}
     {% if post.content_type == 'TICKET' %}
-        <div>
+        <div class="card">
             <p>{{ post.user }} a demander une critique</p>
+            <p>{{ post.time_created }}</p>
             <p>{{ post.title }}</p>
             <p>{{ post.description }}</p>
-            <img src="">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            {% endif %}
         </div>
     {% elif post.content_type == 'REVIEW' %}
-        <div>
+        <div class="card">
             <p>{{ post.user }} a publier une critique</p>
+            <p>{{ post.time_created }}</p>
             <p>{{ post.headline }} - {{ post.rating }}</p>
             <p>{{ post.body }}</p>
-            <img src="">
         </div>
 
 

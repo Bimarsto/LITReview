@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>
+    <div class="form">
         <h2>{{ page_title }}</h2>
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Envoyer">
+            <input class="button" type="submit" value="Envoyer">
         </form>
     </div>
 {% endblock %}

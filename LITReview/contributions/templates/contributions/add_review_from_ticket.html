@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div>
+    <div class="form">
         <h2>Créer un critique</h2>
             <div>
                 <h3>Vous être en train de poster en réponse à:</h3>
@@ -19,7 +19,7 @@
                 <h3>Critique</h3>
                 {{ review_form.as_p }}
             </div>
-            <input type="submit" value="Envoyer">
+            <input class="button" type="submit" value="Envoyer">
         </form>
     </div>
 {% endblock %}

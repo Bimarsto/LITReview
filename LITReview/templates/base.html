@@ -1,25 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>LITReview</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    <nav>
+    <header id="header">
         <h1>LITReview</h1>
-        {% if user.is_authenticated %}
-            <p>Vous êtes connecté en tant que {{ request.user }}.</p>
-            <ul>
-                <li><a href="{% url 'index' %}">Flux</a></li>
-                <li><a href="">Posts</a></li>
-                <li><a href="{% url 'follows' %}">Abonnements</a></li>
-                <li><a href="{% url 'logout' %}">Se déconnecter</a></li>
-            </ul>
-        {% endif %}
-    </nav>
-
+        <nav class="nav">
+            {% if user.is_authenticated %}
+                <p class="nav__item">Vous êtes connecté en tant que: <br> {{ request.user }}.</p>
+                <ul class="nav__item--right">
+                    <li><a href="{% url 'index' %}">Flux</a></li>
+                    <li><a href="">Posts</a></li>
+                    <li><a href="{% url 'follows' %}">Abonnements</a></li>
+                    <li><a href="{% url 'logout' %}">Se déconnecter</a></li>
+                </ul>
+            {% endif %}
+        </nav>
+    </header>
+    <div class="body__content">
 {% block content %}
 {% endblock %}
-
+    </div>
 </body>
 </html>
