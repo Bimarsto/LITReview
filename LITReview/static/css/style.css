@@ -7,6 +7,11 @@ body {
   margin-top: 200px;
 }
 
+h1 {
+  color: #24527a;
+  text-align: center;
+}
+
 .nav {
   align-items: center;
   display: flex;
@@ -40,6 +45,10 @@ body {
   background-color: #e0ebeb;
   color: #24527a;
 }
+.nav__item--right a:active {
+  background-color: #ccac00;
+  color: #24527a;
+}
 
 #header {
   overflow: hidden;
@@ -57,6 +66,179 @@ body {
   text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0, 0, 0, 0.15);
 }
 
+.login-form {
+  position: relative;
+  margin: auto;
+  background-color: #24527a;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 550px;
+  padding: 20px;
+  width: 320px;
+}
+.login-form .centring {
+  width: 280px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.login-form .centring > hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.login-form .centring > p {
+  color: #8eaebb;
+  margin-top: 20px;
+}
+.login-form .title {
+  color: #ccac00;
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 0px;
+}
+.login-form .signup {
+  margin-top: 40px;
+}
+.login-form .separator {
+  border: 2px;
+  border-color: #ccac00;
+}
+.login-form .container {
+  margin-bottom: 10px;
+}
+.login-form .container .submit-button {
+  position: relative;
+  background-color: #8eaebb;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #24527a;
+  cursor: pointer;
+  font-size: 22px;
+  height: 50px;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+.login-form .container .submit-button:active {
+  background-color: #ccac00;
+  color: #24527a;
+}
+.login-form .container .submit-button > a {
+  color: #24527a;
+  text-decoration: none;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+.login-form .container > p {
+  height: 50px;
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+}
+.login-form .container > p > input {
+  margin-top: 10px;
+  background-color: #e0ebeb;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #24527a;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+.login-form .container > p > label {
+  color: #ccac00;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: -10px;
+}
+
+.signup-form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: auto;
+  padding: 20px;
+  width: 320px;
+  background-color: #24527a;
+  border-radius: 20px;
+}
+.signup-form > h2 {
+  color: #ccac00;
+}
+.signup-form > form .submit-button {
+  position: relative;
+  background-color: #8eaebb;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #24527a;
+  cursor: pointer;
+  font-size: 22px;
+  height: 50px;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+.signup-form > form .submit-button:active {
+  background-color: #ccac00;
+  color: #24527a;
+}
+.signup-form > form > p {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+}
+.signup-form > form > p:empty {
+  height: 0;
+  margin: 0;
+}
+.signup-form > form > p .helptext {
+  display: flex;
+  visibility: collapse;
+  height: 0;
+}
+.signup-form > form > p > input {
+  margin-top: 10px;
+  background-color: #e0ebeb;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #24527a;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 0 20px 0;
+  width: 100%;
+}
+.signup-form > form > p > label {
+  color: #ccac00;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+}
+.signup-form > form > ul {
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+}
+
 .button {
   background-color: #24527a;
   border: 0;
@@ -71,11 +253,15 @@ body {
   margin: 0.5rem;
 }
 .button:hover {
-  background-color: #5dacbd;
+  background-color: #8eaebb;
   color: #24527a;
 }
 .button:active {
   transform: scale(0.95);
+}
+.button > a {
+  color: #ccac00;
+  text-decoration: none;
 }
 
 .card {

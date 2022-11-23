@@ -2,7 +2,6 @@
 
 {% block content %}
 
-<h1>Gestion des abonnements utilisateur</h1>
 <div class="form">
     <h2>Suivre d'autres utilisateurs</h2>
     <form action="" method="post" novalidate>
@@ -12,7 +11,7 @@
     </form>
     <p>{{ message }}</p>
 </div>
-<div>
+<div class="form">
     <h2>Abonnements</h2>
     <ul>
     {% for follow in follows %}
@@ -20,7 +19,7 @@
     {% endfor %}
     </ul>
 </div>
-<div>
+<div class="form">
     <h2>Abonnés</h2>
     <ul>
     {% for follow in followed_by %}
@@ -28,4 +27,5 @@
     {% endfor %}
     </ul>
 </div>
+
 {% endblock %}

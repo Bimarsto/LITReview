@@ -12,7 +12,7 @@
         <h1>LITReview</h1>
         <nav class="nav">
             {% if user.is_authenticated %}
-                <p class="nav__item">Vous êtes connecté en tant que: <br> {{ request.user }}.</p>
+                <p class="nav__item">Bonjour, <br> {{ request.user }}.</p>
                 <ul class="nav__item--right">
                     <li><a href="{% url 'index' %}">Flux</a></li>
                     <li><a href="">Posts</a></li>
