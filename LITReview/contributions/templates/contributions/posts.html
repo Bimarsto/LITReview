@@ -2,32 +2,21 @@
 {% block content %}
 {% csrf_token %}
 
-<div class="box">
-    <a class="button" href="{% url 'add_ticket' %}">Demander une critique</a>
-    <a class="button" href="{% url 'add_review_without_ticket' %}">Créer une critique</a>
-</div>
 {% for post in posts %}
     {% if post.content_type == 'TICKET' %}
         <div class="card">
-            {% if user == post.user %}
-                <p>Vous avez demandé uns critique</p>
-            {% else %}
-                <p>{{ post.user }} a demandé une critique</p>
-            {% endif %}
+            <p>Vous avez publié un ticket</p>
             <p>{{ post.time_created }}</p>
             <p>{{ post.title }}</p>
             <p>{{ post.description }}</p>
             {% if post.image %}
                 <img src="{{ post.image.url }}" alt="{{ post.title }}">
             {% endif %}
+            <a class="button" href="{% url 'edit_ticket' post.id %}">Modifier</a>
         </div>
     {% elif post.content_type == 'REVIEW' %}
         <div class="card">
-            {% if user == post.user %}
-                <p>Vous avez publié uns critique</p>
-            {% else %}
-                <p>{{ post.user }} a publié une critique</p>
-            {% endif %}
+            <p>Vous avez publié une critique</p>
             <p>{{ post.time_created }}</p>
             <p>{{ post.headline }} -
                     {% for i in rating %}
@@ -36,8 +25,20 @@
                         {% else %}
                             &#9733
                         {% endif %}
-                    {% endfor %}</p>
+                    {% endfor %}
+            </p>
             <p>{{ post.body }}</p>
+
+            <p>En réponse au ticket</p>
+            <div class="card">
+                <p>{{ post.ticket.time_created }}</p>
+                <p>{{ post.ticket.title }}</p>
+                <p>{{ post.ticket.description }}</p>
+                {% if post.ticket.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                {% endif %}
+            </div>
+            <a class="button" href="{% url 'edit_review' post.id %}">Modifier</a>
         </div>
 
 

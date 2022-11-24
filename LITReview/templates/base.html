@@ -15,7 +15,7 @@
                 <p class="nav__item">Bonjour, <br> {{ request.user }}.</p>
                 <ul class="nav__item--right">
                     <li><a href="{% url 'index' %}">Flux</a></li>
-                    <li><a href="">Posts</a></li>
+                    <li><a href="{% url 'posts' %}">Posts</a></li>
                     <li><a href="{% url 'follows' %}">Abonnements</a></li>
                     <li><a href="{% url 'logout' %}">Se déconnecter</a></li>
                 </ul>

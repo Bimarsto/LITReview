@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="form">
-        <h2>Créer un critique</h2>
+        <h2>{{ page_title }}</h2>
             <div>
                 <h3>Vous être en train de poster en réponse à:</h3>
                 <div>
@@ -17,7 +17,28 @@
             {% csrf_token %}
             <div>
                 <h3>Critique</h3>
-                {{ review_form.as_p }}
+                <div>
+                    <label for="headline">Titre</label>
+                    <div>
+                       {{ review_form.headline }}
+                    </div>
+                </div>
+                <div>
+                    <label for="id_rating" class="form-label">Note</label>
+                    <div class="row">
+                        {% for rate in review_form.rating %}
+                            <div class="col">
+                                {{ rate }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div>
+                    <label for="body">Commentaire</label>
+                    <div>
+                       {{ review_form.body }}
+                    </div>
+                </div>
             </div>
             <input class="button" type="submit" value="Envoyer">
         </form>

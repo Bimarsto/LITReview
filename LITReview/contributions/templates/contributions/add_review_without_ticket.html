@@ -11,7 +11,28 @@
             </div>
             <div class="form">
                 <h3>Critique</h3>
-                {{ review_form.as_p }}
+                <div>
+                    <label for="headline">Titre</label>
+                    <div>
+                       {{ review_form.headline }}
+                    </div>
+                </div>
+                <div>
+                    <label for="id_rating" class="form-label">Note</label>
+                    <div class="row">
+                        {% for rate in review_form.rating %}
+                            <div class="col">
+                                {{ rate }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div>
+                    <label for="body">Commentaire</label>
+                    <div>
+                       {{ review_form.body }}
+                    </div>
+                </div>
             </div>
             <input class="button" type="submit" value="Envoyer">
         </form>
