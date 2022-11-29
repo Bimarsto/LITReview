@@ -17,7 +17,17 @@ def index(request):
             user_to_follow = form.cleaned_data['followed_user']
             if User.objects.filter(username=user_to_follow):
                 user_to_follow = User.objects.get(username=user_to_follow)
-                UserFollows.objects.create(user=request.user, followed_user=user_to_follow)
+                if UserFollows.objects.filter(user=request.user, followed_user=user_to_follow).exists():
+                    message = "Vous suivez déjà cette personne."
+                    return render(request,
+                                  'follows/index.html',
+                                  {'follows': follows,
+                                   'followed_by': followed_by,
+                                   'form': form,
+                                   'message': message,
+                                   })
+                else:
+                    UserFollows.objects.create(user=request.user, followed_user=user_to_follow)
             else:
                 message = "Nom d'utilisateur introuvable. Veuillez réessayer."
                 return render(request,

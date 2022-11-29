@@ -60,7 +60,7 @@ def delete_ticket(request, ticket_id):
 
 
 @login_required
-def add_review_without_ticket(request):
+def add_review_not_from_ticket(request):
     user = request.user
     ticket_form = TicketForm()
     review_form = ReviewForm()
@@ -79,7 +79,7 @@ def add_review_without_ticket(request):
             return redirect('add_review_without_ticket')
         return redirect('index')
     return render(request,
-                  'contributions/add_review_without_ticket.html',
+                  'contributions/review_not_from_ticket.html',
                   {'ticket_form': ticket_form,
                    'review_form': review_form,
                    })
@@ -97,7 +97,7 @@ def add_review_from_ticket(request, ticket_id):
             form.save()
         return redirect('index')
     return render(request,
-                  'contributions/add_review_from_ticket.html',
+                  'contributions/review_from_ticket.html',
                   {'ticket': ticket,
                    'review_form': review_form,
                    'page_title': 'Créer une critique'
@@ -115,7 +115,7 @@ def edit_review(request, review_id):
             form.save()
             return redirect('index')
     return render(request,
-                  'contributions/add_review_from_ticket.html',
+                  'contributions/review_from_ticket.html',
                   {'review_form': form,
                    'ticket': ticket,
                    'page_title': 'Modifier votre critique',

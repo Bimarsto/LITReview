@@ -4,7 +4,7 @@
 
 <div class="box">
     <a class="button" href="{% url 'add_ticket' %}">Demander une critique</a>
-    <a class="button" href="{% url 'add_review_without_ticket' %}">Créer une critique</a>
+    <a class="button" href="{% url 'add_review_not_from_ticket' %}">Créer une critique</a>
 </div>
 {% for post in posts %}
     {% if post.content_type == 'TICKET' %}
