@@ -13,17 +13,28 @@
 </div>
 <div class="form">
     <h2>Abonnements</h2>
-    <ul>
+    <ul class="form__listing">
     {% for follow in follows %}
-        <li>{{ follow.followed_user }}<a href="{% url 'unfollow' follow.id %}">Désabonner</a></li>
+        <li class="form__listing--item">
+            <div class="left">
+                {{ follow.followed_user }}
+            </div>
+            <div class="right">
+                <a href="{% url 'unfollow' follow.id %}">Désabonner</a>
+            </div>
+        </li>
     {% endfor %}
     </ul>
 </div>
 <div class="form">
     <h2>Abonnés</h2>
-    <ul>
+    <ul class="form__listing">
     {% for follow in followed_by %}
-        <li>{{ follow.user }}</li>
+        <li class="form__listing--item">
+            <div class="left">
+                {{ follow.user }}
+            </div>
+        </li>
     {% endfor %}
     </ul>
 </div>

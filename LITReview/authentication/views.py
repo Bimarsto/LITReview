@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from . import forms
 
 
@@ -11,7 +12,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect(settings.LOGIN_REDIRECT_URL)
+            return redirect('index')
     return render(request, 'authentication/signup.html', context={'form': form})
 
 
@@ -33,6 +34,7 @@ def login_page(request):
     return render(request, 'authentication/login.html', context={'form': form, 'message': message})
 
 
+@login_required
 def logout_page(request):
     logout(request)
     return redirect('login')

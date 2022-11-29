@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <h2>Vous n'êtes pas autorisé à supprimer
+                {% if type_item == 'ticket' %}
+                        ce ticket
+                {% elif type_item == 'review' %}
+                        cette critique
+                {% endif %}
+        </h2>
+        <a class="button" href="{% url 'posts' %}">Retour</a>
+{% endblock %}

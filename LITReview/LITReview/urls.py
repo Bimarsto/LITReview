@@ -20,8 +20,8 @@ from django.urls import path
 from authentication.views import signup, login_page, logout_page
 from follows.views import index, unfollow
 from contributions.views import flux, posts, \
-    add_ticket, edit_ticket, \
-    add_review_without_ticket, add_review_from_ticket, edit_review
+    add_ticket, edit_ticket, delete_ticket,\
+    add_review_without_ticket, add_review_from_ticket, edit_review, delete_review
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,9 +34,11 @@ urlpatterns = [
     path('unfollows/<int:id_deleted>/', unfollow, name='unfollow'),
     path('tickets/add/', add_ticket, name='add_ticket'),
     path('tickets/edit/<int:ticket_id>/', edit_ticket, name='edit_ticket'),
+    path('tickets/delete/<int:ticket_id>/', delete_ticket, name='delete_ticket'),
     path('reviews/add/', add_review_without_ticket, name='add_review_without_ticket'),
     path('reviews/<int:ticket_id>/add/', add_review_from_ticket, name='add_review_from_ticket'),
     path('reviews/edit/<int:review_id>/', edit_review, name='edit_review'),
+    path('reviews/delete/<int:review_id>/', delete_review, name='delete_review'),
 ]
 
 if settings.DEBUG:

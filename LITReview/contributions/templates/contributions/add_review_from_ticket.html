@@ -10,7 +10,9 @@
                     <p>{{ ticket.user }} a demander une critique</p>
                     <p>{{ ticket.title }}</p>
                     <p>{{ ticket.description }}</p>
-                    <p>{{ ticket.image }}</p>
+                    {% if ticket.image %}
+                        <img src="{{ ticket.image.url }}" alt="{{ ticket.title }}" style="width: 200px;">
+                    {% endif %}
                 </div>
             </div>
         <form method="post">

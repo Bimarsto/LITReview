@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from follows.models import UserFollows
 from follows.forms import FollowForm
 from authentication.models import User
 
 
+@login_required
 def index(request):
     form = FollowForm()
     follows = UserFollows.objects.filter(user=request.user)
@@ -35,6 +37,7 @@ def index(request):
                    })
 
 
+@login_required
 def unfollow(request, id_deleted):
     UserFollows.objects.get(user=request.user, id=id_deleted).delete()
     return redirect('follows')

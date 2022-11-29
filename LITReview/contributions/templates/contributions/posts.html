@@ -12,7 +12,10 @@
             {% if post.image %}
                 <img src="{{ post.image.url }}" alt="{{ post.title }}">
             {% endif %}
-            <a class="button" href="{% url 'edit_ticket' post.id %}">Modifier</a>
+            <div class="card--buttons">
+                <a class="button" href="{% url 'edit_ticket' post.id %}">Modifier</a>
+                <a class="button" href="{% url 'delete_ticket' post.id %}">Supprimer</a>
+            </div>
         </div>
     {% elif post.content_type == 'REVIEW' %}
         <div class="card">
@@ -31,6 +34,7 @@
 
             <p>En réponse au ticket</p>
             <div class="card">
+                <p>{{ post.ticket.user}}</p>
                 <p>{{ post.ticket.time_created }}</p>
                 <p>{{ post.ticket.title }}</p>
                 <p>{{ post.ticket.description }}</p>
@@ -38,7 +42,10 @@
                     <img src="{{ post.image.url }}" alt="{{ post.title }}">
                 {% endif %}
             </div>
-            <a class="button" href="{% url 'edit_review' post.id %}">Modifier</a>
+            <div class="card--buttons">
+                <a class="button" href="{% url 'edit_review' post.id %}">Modifier</a>
+                <a class="button" href="{% url 'delete_review' post.id %}">Supprimer</a>
+            </div>
         </div>
 
 

@@ -20,6 +20,15 @@
             {% if post.image %}
                 <img src="{{ post.image.url }}" alt="{{ post.title }}">
             {% endif %}
+            {% for search_post in posts %}
+                {% if search_post.content_type == 'REVIEW' %}
+                    {% if not search_post.ticket.id == post.id %}
+                        <div class="card--buttons">
+                            <a class="button" href="{% url 'add_review_from_ticket' post.id %}">Créer une critique</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
         </div>
     {% elif post.content_type == 'REVIEW' %}
         <div class="card">
@@ -38,6 +47,13 @@
                         {% endif %}
                     {% endfor %}</p>
             <p>{{ post.body }}</p>
+            <div class="card">
+                <p>Ticket - {{ post.ticket.user }}</p>
+                <p>{{ post.ticket.title }}</p>
+                {% if post.ticket.image %}
+                <img src="{{ post.ticket.image.url }}" alt="{{ post.ticket.title }}">
+            {% endif %}
+            </div>
         </div>
 
 

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <h2>
+                Supprimer {% if type_item == 'ticket' %}
+                        le ticket
+                {% elif type_item == 'review' %}
+                        la critique
+                {% endif %}
+        </h2>
+        <p>
+                Etes_vous sûr de vouloir supprimer
+                {% if type_item == 'ticket' %}
+                        le ticket: {{ ticket.title }}
+                {% elif type_item == 'review' %}
+                        la critique: {{ review.headline }}
+                {% endif %}
+        </p>
+        <div class="form">
+                <form method="post">
+                {% csrf_token %}
+                <input class="button" type="submit" value="Supprimer">
+                </form>
+                <a class="button" href="{% url 'posts' %}">Retour</a>
+        </div>
+{% endblock %}
