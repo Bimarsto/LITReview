@@ -6,7 +6,6 @@ from django.db.models import CharField, Value
 from .forms import TicketForm, ReviewForm
 from .models import Ticket, Review
 from follows.models import UserFollows
-from authentication.models import User
 
 RATING = [0, 1, 2, 3, 4, 5]
 
@@ -149,7 +148,8 @@ def get_users_reviews(request, user):
 
 @login_required
 def get_followed_user_reviews(request, users_followed):
-    user_followed_reviews = Review.objects.filter(user__id__in=users_followed.values_list('followed_user_id'))
+    users_list = users_followed.values_list('followed_user_id')
+    user_followed_reviews = Review.objects.filter(user__id__in=users_list)
     return user_followed_reviews
 
 
@@ -161,7 +161,8 @@ def get_users_tickets(request, user):
 
 @login_required
 def get_followed_user_tickets(request, users_followed):
-    user_followed_tickets = Ticket.objects.filter(user__id__in=users_followed.values_list('followed_user_id'))
+    users_list = users_followed.values_list('followed_user_id')
+    user_followed_tickets = Ticket.objects.filter(user__id__in=users_list)
     return user_followed_tickets
 
 
