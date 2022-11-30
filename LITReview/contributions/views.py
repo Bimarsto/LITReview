@@ -5,6 +5,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import CharField, Value
 from .forms import TicketForm, ReviewForm
 from .models import Ticket, Review
+from follows.models import UserFollows
+from authentication.models import User
 
 RATING = [0, 1, 2, 3, 4, 5]
 
@@ -146,9 +148,9 @@ def get_users_reviews(request, user):
 
 
 @login_required
-def get_all_reviews(request):
-    all_reviews = Review.objects.all()
-    return all_reviews
+def get_followed_user_reviews(request, users_followed):
+    user_followed_reviews = Review.objects.filter(user__id__in=users_followed.values_list('followed_user_id'))
+    return user_followed_reviews
 
 
 @login_required
@@ -158,16 +160,21 @@ def get_users_tickets(request, user):
 
 
 @login_required
-def get_all_tickets(request):
-    all_tickets = Ticket.objects.all()
-    return all_tickets
+def get_followed_user_tickets(request, users_followed):
+    user_followed_tickets = Ticket.objects.filter(user__id__in=users_followed.values_list('followed_user_id'))
+    return user_followed_tickets
 
 
 @login_required
 def flux(request):
-    reviews = get_all_reviews(request)
+    users_followed = UserFollows.objects.filter(user=request.user)
+    user_reviews = get_users_reviews(request, request.user)
+    followed_user_reviews = get_followed_user_reviews(request, users_followed)
+    reviews = user_reviews | followed_user_reviews
     reviews = reviews.annotate(content_type=Value('REVIEW', CharField()))
-    tickets = get_all_tickets(request)
+    user_tickets = get_users_tickets(request, request.user)
+    followed_user_tickets = get_followed_user_tickets(request, users_followed)
+    tickets = user_tickets | followed_user_tickets
     tickets = tickets.annotate(content_type=Value('TICKET', CharField()))
     all_posts = sorted(chain(tickets, reviews),
                        key=lambda post: post.time_created,
