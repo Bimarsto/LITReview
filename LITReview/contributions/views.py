@@ -32,13 +32,14 @@ def edit_ticket(request, ticket_id):
     ticket = get_object_or_404(Ticket, id=ticket_id)
     form = TicketForm(instance=ticket)
     if request.method == 'POST':
-        form = TicketForm(request.POST, instance=ticket)
+        form = TicketForm(request.POST, request.FILES, instance=ticket)
         if form.is_valid():
             form.save()
             return redirect('index')
     return render(request,
                   'contributions/ticket.html',
                   {'form': form,
+                   'ticket': ticket,
                    'page_title': 'Modifier votre ticket',
                    })
 

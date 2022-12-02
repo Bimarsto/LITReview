@@ -366,9 +366,41 @@ h1 {
   align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   width: 90%;
   margin: auto;
+}
+.card__form .form {
+  width: 100%;
+  border: 1px solid #24527a;
+  align-items: flex-start;
+  padding: 20px;
+}
+.card__form .form form {
+  width: 100%;
+  align-items: flex-start;
+}
+.card__form .form form img {
+  max-width: 200px;
+}
+.card__form .form p {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  width: 100%;
+}
+.card__form .form p > label {
+  margin-bottom: 5px;
+}
+.card__form .form p #id_title {
+  height: 1.5em;
+}
+.card__form .form p #id_image {
+  height: 2em;
+}
+.card__form .form p > input {
+  width: calc(100% - 8px);
+  height: 1em;
 }
 .card__form > h2 {
   color: #24527a;
@@ -380,6 +412,9 @@ h1 {
   border: 1px solid #24527a;
   align-items: flex-start;
   padding: 20px;
+}
+.card__form > form .form .ticket_image > img {
+  max-width: 200px;
 }
 .card__form > form .form > h3 {
   justify-content: flex-start;
@@ -395,7 +430,7 @@ h1 {
 }
 .card__form > form .form > p > input {
   width: calc(100% - 8px);
-  height: 1.5em;
+  height: 1em;
 }
 .card__form > form .form > div {
   display: flex;

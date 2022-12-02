@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="form">
+    <div class="card__form">
         <h2>{{ page_title }}</h2>
-            <div>
+        <form>
+            <div class="form">
                 <h3>Vous être en train de poster en réponse à:</h3>
                 <div>
                     <p>{{ ticket.time_created }}</p>
@@ -15,9 +16,10 @@
                     {% endif %}
                 </div>
             </div>
+        </form>
         <form method="post">
             {% csrf_token %}
-            <div>
+            <div class="form">
                 <h3>Critique</h3>
                 <div>
                     <label for="headline">Titre</label>

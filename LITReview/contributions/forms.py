@@ -3,6 +3,8 @@ from contributions.models import Ticket, Review
 
 
 class TicketForm(forms.ModelForm):
+    image = forms.ImageField(widget=forms.FileInput)
+
     class Meta:
         model = Ticket
         fields = ['title', 'description', 'image']

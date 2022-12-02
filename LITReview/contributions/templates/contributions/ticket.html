@@ -2,13 +2,17 @@
 
 {% block content %}
     <div class="card__form">
-        <div class="form">
-            <h2>{{ page_title }}</h2>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input class="button" type="submit" value="Envoyer">
-            </form>
-        </div>
+            <div class="form">
+                <h2>{{ page_title }}</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    {% if ticket.image %}
+                        <img class="ticket_image" src="{{ ticket.image.url }}" alt="{{ ticket.title }}">
+                    {% endif %}
+                    <input class="button" type="submit" value="Envoyer">
+                </form>
+
+            </div>
     </div>
 {% endblock %}

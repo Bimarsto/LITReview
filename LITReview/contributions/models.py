@@ -16,7 +16,7 @@ class Ticket(models.Model):
         return f"{self.title}"
 
     def get_absolute_url(self):
-        return reverse('edit_ticket', kwargs={'id': self.id})
+        return reverse('edit_ticket', kwargs={'ticket_id': self.id})
 
 
 class Review(models.Model):
@@ -33,3 +33,6 @@ class Review(models.Model):
 
     def __str__(self):
         return f"{self.headline}"
+
+    def get_absolute_url(self):
+        return reverse('edit_review', kwargs={'review_id': self.id})
