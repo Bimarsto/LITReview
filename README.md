@@ -33,6 +33,10 @@ puis clonez ce repository à l'aide le la commande :
 
 ```pip install -r requirements.txt```
 
+* Placez-vous à la racine du projet (là ou se trouve le fichier manage.py), puis effectuez les migrations :  
+
+```python manage.py makemigrations```
+
 * Effectuez les migrations :
 
 ```python manage.py migrate```
